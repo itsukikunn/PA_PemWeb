@@ -29,7 +29,7 @@ if (isset($_POST['signup'])) {
     } else {
         echo "<script>
                 alert('Username atau email tidak ditemukan! Silakan registrasi terlebih dahulu.');
-                document.location.href = 'registrasi.php';
+                document.location.href = 'signup.php';
               </script>";
     }
 }
