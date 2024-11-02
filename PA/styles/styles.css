@@ -19,12 +19,12 @@ body {
 }
 
 .custom-logo {
-  height: 170%;
-  width: 80%;
-  margin-top: -14px;
+  height: 80px;
+  width: 80px;
+  margin-top: -20px;
+  margin-left: -30px;
   border-radius: 5px;
 }
-
 
 .search-bar {
   flex: 1;
@@ -194,7 +194,7 @@ body {
 
 .footer-main {
   background-color: #f8f8f8; 
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid darkgray;
 }
 
 .footer-container {
@@ -224,6 +224,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.footer-logo{
+  margin-right: 150px;
+}
+
 .footer-option > div {
   margin-bottom: 20px;
 }
@@ -246,7 +250,7 @@ body {
 
 .list-link {
   text-decoration: none;
-  color: #ffffff;
+  color: white;
   font-size: 14px;
 }
 
@@ -279,12 +283,11 @@ body {
 
 .copyright {
   width: 100%;
-  padding-bottom: 20px;
-  border-top: 1px solid #e0e0e0;
   font-size: 12px;
   text-align: center;
-  color: #999;
-  background-color: white;
+  color: white;
+  background-color: #2d3891;
+  margin-left: 200px;
 }
 
 .sub-copyright {
@@ -312,7 +315,7 @@ body {
 
 .menu-copyright .list-link {
   text-decoration: none;
-  color: #666;
+  color: white;
 }
 
 .menu-copyright .list-link:hover {
