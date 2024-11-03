@@ -159,8 +159,11 @@ body {
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff; 
+  border: 1px solid #0f0e0e; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s, transform 0.3s; 
+  margin: 10px; 
+  cursor: pointer; 
 }
 
 .category-item img {
@@ -169,6 +172,7 @@ body {
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  transition: transform 0.3s ease; 
 }
 
 .category-item span {
@@ -178,12 +182,21 @@ body {
   font-weight: bold;
   color: #333;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
+
 .category-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5); 
 }
+
+
+.category-item:active {
+  transform: translateY(0); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
 
 .category-item:hover span {
   color: #0073e6; 
@@ -191,7 +204,9 @@ body {
 
 .category-item:hover img {
   filter: brightness(0.9);
+  transform: scale(1.05);
 }
+
 
 .footer-main {
   background-color: #f8f8f8; 
