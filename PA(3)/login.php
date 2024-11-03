@@ -3,37 +3,46 @@ session_start();
 require "koneksi.php";
 
 if (isset($_POST['signup'])) {
-    $email = $_POST['email'] ?? '';
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+    $usernameadmin = 'admin';
+    $passwordadmin = 'admin';
 
-    $sql = "SELECT * FROM user WHERE email = '$email' AND username = '$username'";
-    $result = mysqli_query($conn, $sql);
+    if ($username === $usernameadmin && $password === $passwordadmin) {
+        $_SESSION['username'] = $usernameadmin;
+        $_SESSION['login'] = true;
+        $_SESSION['admin'] = true;
+        echo "<script>
+                alert('Login berhasil sebagai Admin! Selamat datang $usernameadmin');
+                document.location.href = 'CRUDadmin.php';
+              </script>";
+    } else {
+        $sql = "SELECT * FROM user WHERE username = '$username'";
+        $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
 
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['username'] = $username;
-            $_SESSION['login'] = true;
-
-            echo "<script>
-                    alert('Login berhasil! Selamat datang $username');
-                    document.location.href = 'index.html';
-                </script>";
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['username'] = $username;
+                $_SESSION['login'] = true;
+                echo "<script>
+                        alert('Login berhasil! Selamat datang $username');
+                        document.location.href = 'index.php';
+                    </script>";
+            } else {
+                echo "<script>
+                        alert('Password salah!');
+                      </script>";
+            }
         } else {
             echo "<script>
-                    alert('Password salah!');
+                    alert('Username tidak ditemukan! Silakan registrasi terlebih dahulu.');
+                    document.location.href = 'signup.php';
                   </script>";
         }
-    } else {
-        echo "<script>
-                alert('Username atau email tidak ditemukan! Silakan registrasi terlebih dahulu.');
-                document.location.href = 'signup.php';
-              </script>";
     }
 }
-
 mysqli_close($conn);
 ?>
 
