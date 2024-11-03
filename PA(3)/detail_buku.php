@@ -9,7 +9,7 @@ if (isset($_GET["id_buku"])) {
     $id_buku = $_GET["id_buku"];
 } else {
     echo "<script>alert('Buku tidak ditemukan')</script>";
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 // Cari ID User berdasarkan username
@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) != 1) {
     echo "<script>alert('Buku tidak ditemukan')</script>";
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -110,7 +110,7 @@ if (isset($_POST["tambah_keranjang"])) {
     <div class="navbar">
         <!-- vardump session -->
         Cek Session: (<?php var_dump($_SESSION); ?>)
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="history.php">Histori</a>
         <a href="keranjang.php">Keranjang</a>
     </div>
