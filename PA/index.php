@@ -102,54 +102,84 @@ if (isset($_GET['logout'])) {
             </div>
     
             <div class="book-list">
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
-                    <div class="book-title">Buku 1</div>
-                    <div class="book-author">Penulis 1</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-                
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
-                    <div class="book-title">Buku 2</div>
-                    <div class="book-author">Penulis 2</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="1">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
+                <div class="book-title">Buku 1</div>
+                <div class="book-author">Penulis 1</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
+    </div>
     
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
-                    <div class="book-title">Buku 3</div>
-                    <div class="book-author">Penulis 3</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
-                    <div class="book-title">Buku 4</div>
-                    <div class="book-author">Penulis 4</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
-                    <div class="book-title">Buku 5</div>
-                    <div class="book-author">Penulis 5</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
-                    <div class="book-title">Buku 6</div>
-                    <div class="book-author">Penulis 6</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="2">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
+                <div class="book-title">Buku 2</div>
+                <div class="book-author">Penulis 2</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
+    </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="3">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
+                        <div class="book-title">Buku 3</div>
+                        <div class="book-author">Penulis 3</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
             </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="4">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
+                        <div class="book-title">Buku 4</div>
+                        <div class="book-author">Penulis 4</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="5">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
+                        <div class="book-title">Buku 5</div>
+                        <div class="book-author">Penulis 5</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="6">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
+                        <div class="book-title">Buku 6</div>
+                        <div class="book-author">Penulis 6</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+    </div>
         </div>
     </div>
 
     <div class="container">
         <div class="headerbook">
-            <h1>Buku Terbaru</h1>
+            <h1>Buku Terlaris</h1>
             <a href="#">Lihat Semua</a>
         </div>
     
@@ -159,54 +189,84 @@ if (isset($_GET['logout'])) {
             </div>
     
             <div class="book-list">
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
-                    <div class="book-title">Buku 1</div>
-                    <div class="book-author">Penulis 1</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-                
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
-                    <div class="book-title">Buku 2</div>
-                    <div class="book-author">Penulis 2</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="1">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
+                <div class="book-title">Buku 1</div>
+                <div class="book-author">Penulis 1</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
+    </div>
     
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
-                    <div class="book-title">Buku 3</div>
-                    <div class="book-author">Penulis 3</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
-                    <div class="book-title">Buku 4</div>
-                    <div class="book-author">Penulis 4</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
-                    <div class="book-title">Buku 5</div>
-                    <div class="book-author">Penulis 5</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
-                    <div class="book-title">Buku 6</div>
-                    <div class="book-author">Penulis 6</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="2">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
+                <div class="book-title">Buku 2</div>
+                <div class="book-author">Penulis 2</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
+    </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="3">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
+                        <div class="book-title">Buku 3</div>
+                        <div class="book-author">Penulis 3</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
             </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="4">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
+                        <div class="book-title">Buku 4</div>
+                        <div class="book-author">Penulis 4</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="5">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
+                        <div class="book-title">Buku 5</div>
+                        <div class="book-author">Penulis 5</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="6">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
+                        <div class="book-title">Buku 6</div>
+                        <div class="book-author">Penulis 6</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+    </div>
         </div>
     </div>
 
     <div class="container">
         <div class="headerbook">
-            <h1>Buku Populer</h1>
+            <h1>Buku Terlaris</h1>
             <a href="#">Lihat Semua</a>
         </div>
     
@@ -216,50 +276,79 @@ if (isset($_GET['logout'])) {
             </div>
     
             <div class="book-list">
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
-                    <div class="book-title">Buku 1</div>
-                    <div class="book-author">Penulis 1</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-                
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
-                    <div class="book-title">Buku 2</div>
-                    <div class="book-author">Penulis 2</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
-                    <div class="book-title">Buku 3</div>
-                    <div class="book-author">Penulis 3</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
-                    <div class="book-title">Buku 4</div>
-                    <div class="book-author">Penulis 4</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
-                    <div class="book-title">Buku 5</div>
-                    <div class="book-author">Penulis 5</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-    
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
-                    <div class="book-title">Buku 6</div>
-                    <div class="book-author">Penulis 6</div>
-                    <div class="book-price">Rp50.000</div>
-                </div>
-            </div>
-        </div>
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="1">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 1" class="book-image">
+                <div class="book-title">Buku 1</div>
+                <div class="book-author">Penulis 1</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
     </div>
+    
+    <div class="book-card">
+        <form action="detail_buku.php" method="GET">
+            <input type="hidden" name="id_buku" value="2">
+            <button type="submit" class="book-button">
+                <img src="https://via.placeholder.com/200x250" alt="Buku 2" class="book-image">
+                <div class="book-title">Buku 2</div>
+                <div class="book-author">Penulis 2</div>
+                <div class="book-price">Rp50.000</div>
+            </button>
+        </form>
+    </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="3">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 3" class="book-image">
+                        <div class="book-title">Buku 3</div>
+                        <div class="book-author">Penulis 3</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="4">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 4" class="book-image">
+                        <div class="book-title">Buku 4</div>
+                        <div class="book-author">Penulis 4</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="5">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 5" class="book-image">
+                        <div class="book-title">Buku 5</div>
+                        <div class="book-author">Penulis 5</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="book-card">
+                <form action="detail_buku.php" method="GET">
+                    <input type="hidden" name="id_buku" value="6">
+                    <button type="submit" class="book-button">
+                        <img src="https://via.placeholder.com/200x250" alt="Buku 6" class="book-image">
+                        <div class="book-title">Buku 6</div>
+                        <div class="book-author">Penulis 6</div>
+                        <div class="book-price">Rp50.000</div>
+                    </button>
+                </form>
+            </div>
+    </div>
+        </div>
     </div>
     
 
