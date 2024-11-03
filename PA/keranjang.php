@@ -68,6 +68,7 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
 
 <html>
+
 <head>
     <title>Keranjang</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
