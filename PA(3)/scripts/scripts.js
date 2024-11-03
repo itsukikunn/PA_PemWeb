@@ -6,7 +6,7 @@ const gambar = [
 let indeksSaatIni = 0;
 
 function gantiBanner() {
-    const banner = document.getElementById("bannerBesar");
+    const banner = document.getElementById("bannerLarge");
     indeksSaatIni = (indeksSaatIni + 1) % gambar.length;
     banner.src = gambar[indeksSaatIni];
 }
