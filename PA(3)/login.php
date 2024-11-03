@@ -59,10 +59,6 @@ mysqli_close($conn);
         <h2>Login</h2>
         <form action="login.php" method="POST">
             <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
             </div>
