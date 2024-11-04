@@ -5,6 +5,16 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
+// Hanya admin yang bisa masuk
+if(isset($_SESSION["username"])){
+    if($_SESSION['admin'] == true){
+        $_SESSION['admin'] = true;
+    }
+} else {
+    header("Location: index.php");
+    exit();
+}
+
 // Query untuk mendapatkan semua records
 if(isset($_SESSION["username"])){
     $username = $_SESSION["username"];
@@ -39,62 +49,180 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Admin</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        table, th, td {
-            border: 1px solid black;
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #285398;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        th, td {
-            padding: 10px;
-            text-align: left;
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #4CAF50;
+        }
+
+        .navbar .logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
         }
         .search-bar {
-            margin-bottom: 20px;
+            margin: 20px auto;
+            text-align: center;
         }
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
         .tambah {
-            color:black;
-            padding: 10px 10px;
-            text-decoration: none;
-            border: 1px solid black;
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
+            text-decoration: none;
         }
         .tambah:hover {
-            background-color: #f1f1f1;
+            background-color: #45a049;
+            text-decoration: none;
         }
-
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-            height: 50px;
-            color: white;
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
         }
-
-        .navbar a{
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            font-size : 20px;
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
         .gambar-row {
-            width: fit-content;
+            width: 100px;
             height: auto;
         }
+        td a {
+            margin-right: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+            align-items: center;
+        }
+
+        .search-bar form {
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-bar input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .aksi-edit {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 0 10px 5px;
+            font-size: 12px;
+            width: 60px;
+        }
+
+        .aksi-hapus {
+            padding: 5px 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 0 10px 5px;
+            font-size: 12px;
+            width: 60px;
+        }
+
+        .logo {
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        .logout {
+            float: right;
+            padding: 14px 20px;
+        }
+
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="logout.php">Logout</a>
+        <a href="index.php" style="float: left; padding: 14px 16px;">
+            <img class='logo' src="uploads/logo.png" alt="Logo">
+            <span>Nama Web</span>
+        </a>
+        <a class="logout" href="logout.php" style="float: right; padding: 14px 16px;">Logout</a>
     </div>
-    <h1>CRUD ADMIN</h1>
-    <search-bar>
+    <h1>ADMIN PANEL</h1>
+
+    <div class="search-bar">
         <form action="CRUDadmin.php" method="GET">
             <input type="text" name="search" placeholder="Cari ID, Judul, Penulis"
             <?php if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"'; ?>>
         </form>
-    </search-bar>
+    </div>
+
     <a href="tambah_buku.php">
         <button class="tambah">Tambah Buku</button>
     </a>
@@ -122,8 +250,11 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <td><?php echo $b['stok_buku']?></td>
                 <td><?php echo $b['harga_buku']?></td>
                 <td>
-                    <a href="edit_buku.php?id_buku=<?php echo $b['id_buku'] ?>">Edit</a>
-                    <a href="delete_buku.php?id_buku=<?php echo $b['id_buku'] ?>" onclick="return confirm('Yakin ingin menghapus?')">Delete</a>
+                    <a href="edit_buku.php?id_buku=<?php echo $b['id_buku'] ?>">
+                        <button class="aksi-edit">Edit</button>
+                    <a href="delete_buku.php?id_buku=<?php echo $b['id_buku'] ?>" onclick="return confirm('Yakin ingin menghapus?')">
+                        <button class="aksi-hapus">Delete </button>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>

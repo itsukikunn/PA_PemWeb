@@ -82,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         h1 {
             text-align: center;
             color: #333;
+            margin-top: 20px;
         }
 
         form {
@@ -90,35 +91,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            color: #555;
         }
 
         input[type="text"],
-        input[type="number"],
+        input[type="number"]{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
         textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            max-width: 100%;
+            min-width: 100%;
+            min-height: 50px;
         }
 
         button {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #28a745;
             color: #fff;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
@@ -137,11 +154,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .gambar-box {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             border: 1px solid #ccc;
             margin: 10px 0;
             padding: 10px;
+            border-radius: 4px;
+            background-color: #fafafa;
         }
 
         .gambar-preview {
@@ -149,6 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-height: 200px;
             margin: 10px 0;
             object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         .gambar-box input {
@@ -158,6 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
             background-color: #f4f4f4;
             cursor: pointer;
+            font-size: 16px;
         }
     </style>
 

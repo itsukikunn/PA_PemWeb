@@ -11,15 +11,24 @@ if (!isset($_SESSION['username'])) {
     window.location.href='login.php'
     </script>";
     exit();
+} else if (isset($_SESSION['admin'])){
+    if ($_SESSION["admin"] == true) {
+        echo "<script>
+        window.location.href='CRUDadmin.php';
+        </script>";
+    }
 }
 $id_user = $_SESSION['id_user'];
 $image_dir = "uploads/";
 
+
+// SELECT t.*, b.nama_buku, b.harga_buku, b.gambar 
+// LEFT JOIN buku b ON t.FK_id_buku = b.id_buku 
 // Join transaksi dan buku
 $history = [];
 $query = "SELECT t.*, b.nama_buku, b.harga_buku, b.gambar 
           FROM transaksi t 
-          JOIN buku b ON t.FK_id_buku = b.id_buku 
+          LEFT JOIN buku b ON t.FK_id_buku = b.id_buku 
           WHERE t.FK_id_user = '$id_user' 
           AND t.status_transaksi = 2 
           ORDER BY t.tanggal DESC";
@@ -38,7 +47,7 @@ while ($row = mysqli_fetch_array($result)) {
     <title>Histori</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styles/history.css">
-    
+
 </head>
 
 <body>
@@ -61,14 +70,39 @@ while ($row = mysqli_fetch_array($result)) {
                     <div class="item-history">
                         <div class="gambar-history">
                             <a href="detail_buku.php?id_buku=<?php echo $item['FK_id_buku']; ?>">
-                                <img src="<?php echo $image_dir . $item['gambar']; ?>" alt="gambar">
+                                <img src="<?php echo $image_dir . $item['gambar']; ?>" alt="Buku sudah tidak tersedia">
                             </a>
                         </div>
                         <div class="detail-history">
-                            <h3><?php echo $item['nama_buku']; ?></h3>
-                            <p>Rp<?php echo number_format($item['harga_buku'], 0, ',', '.'); ?></p>
+                            <!-- Judul Buku -->
+                            <h3><?php if ($item["FK_id_buku"] == null) {
+                                    echo "Buku sudah tidak tersedia";
+                                } else {
+                                    echo $item['nama_buku'];
+                                }
+                                ?></h3>
+                            <!-- Harga Buku -->
+                            <p>
+                                <?php
+                                if ($item['FK_id_buku'] == null) {
+                                    echo "";
+                                } else {
+                                    echo "Rp" . number_format($item['harga_buku'], 0, ',', '.');
+                                }
+                                ?>
+                            </p>
+                            <!-- Kuantitas -->
                             <p>Kuantitas: <?php echo $item['jumlah_transaksi']; ?></p>
-                            <b><p>Total: Rp<?php echo number_format($item['jumlah_transaksi'] * $item['harga_buku'], 0, ',', '.'); ?></p></b>
+                            <!-- Total Harga -->
+                            <b>
+                                <?php
+                                if ($item['FK_id_buku'] == null) {
+                                    echo '';
+                                } else {
+                                    echo "<p>Total: Rp" . number_format($item['jumlah_transaksi'] * $item['harga_buku'], 0, ',', '.') . "</p>";
+                                }
+                                ?>
+                            </b>
                             <p>Tanggal Transaksi: <?php echo $item['tanggal']; ?></p>
                         </div>
                     </div>

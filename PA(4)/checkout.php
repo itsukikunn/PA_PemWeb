@@ -6,22 +6,22 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (isset($_SESSION["username"])) {
+    if($_SESSION['admin'] == true) {
+        $_SESSION['admin'] = true;
+    }
     $id_user = $_SESSION["id_user"];
 } else {
     header("Location: login.php");
     exit();
 }
 
-// Tambahkan tanggal pembelian hanya tanggal bulan tahun
-$query = "UPDATE transaksi SET status_transaksi = 2, tanggal=CURDATE()
-WHERE FK_id_user = " . $_SESSION['id_user'] . " AND status_transaksi = 1";
 
-mysqli_query($conn, $query);
+// Menggabungkan data buku dan transaksi
 
 $query = "SELECT t.*, b.nama_buku, b.harga_buku 
           FROM transaksi t 
           JOIN buku b ON t.FK_id_buku = b.id_buku 
-          WHERE t.FK_id_user = '$id_user' AND t.status_transaksi = 2";
+          WHERE t.FK_id_user = '$id_user' AND t.status_transaksi = 1";
 $result = mysqli_query($conn, $query);
 
 $items = [];
@@ -65,7 +65,14 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <td><?php echo $item['jumlah_transaksi']; ?></td>
                         <td>Rp<?php echo number_format($item['harga_buku'] * $item['jumlah_transaksi'], 0, ',', '.'); ?></td>
                     </tr>
-                <?php endforeach; ?>
+                    <?php 
+                        $query = "UPDATE buku SET stok_buku = stok_buku - " . $item['jumlah_transaksi'] . " WHERE id_buku = " . $item['FK_id_buku'];
+                        mysqli_query($conn, $query);
+                        // Ubah status 1 -> 2
+                        $query = 'UPDATE transaksi SET tanggal = NOW(), status_transaksi = 2 WHERE FK_id_user = ' . $id_user . ' AND status_transaksi = 1';
+                        mysqli_query($conn, $query);    
+                        endforeach
+                    ?>
             </tbody>
         </table>
         <div class="receipt-total">

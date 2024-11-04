@@ -5,6 +5,14 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+if (isset($_SESSION["admin"])) {
+    if($_SESSION["admin"] == true) {
+        echo "<script>
+        window.location.href='CRUDadmin.php';
+        </script>";
+    }
+}
+
 if (isset($_GET["id_buku"])) {
     $id_buku = $_GET["id_buku"];
 } else {

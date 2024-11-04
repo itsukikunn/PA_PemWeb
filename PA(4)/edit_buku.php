@@ -1,7 +1,7 @@
 <?php
 require "koneksi.php";
 
-if(session_status() == PHP_SESSION_NONE){
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
@@ -22,25 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $harga_buku = $_POST['harga_buku'];
 
     // Cek apakah ada file yang diupload
-    if(isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == 0) {
+    if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == 0) {
         // Direktori untuk menyimpan file
         $target_dir = "uploads/";
-        
+
         // Mendapatkan ekstensi file
         $file_extension = strtolower(pathinfo($_FILES["gambar"]["name"], PATHINFO_EXTENSION));
-        
+
         // Mendapatkan nama asli file
         $original_filename = pathinfo($_FILES["gambar"]["name"], PATHINFO_FILENAME);
-        
+
         // Membuat nama file baru yang unik
         $new_filename = $original_filename . '_' . uniqid() . '.' . $file_extension;
-        
+
         // Path lengkap file tujuan
         $target_file = $target_dir . $new_filename;
-        
+
         // Cek apakah file adalah gambar
         $check = getimagesize($_FILES["gambar"]["tmp_name"]);
-        if($check !== false) {
+        if ($check !== false) {
             // Upload file ke folder tujuan
             if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
                 // Query untuk update data ke database
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 harga_buku = '$harga_buku', 
                                 gambar = '$new_filename' 
                                 WHERE id_buku = $id_buku";
-                
+
                 if (mysqli_query($conn, $update_query)) {
                     header("Location: CRUDadmin.php");
                     exit;
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         stok_buku = '$stok_buku', 
                         harga_buku = '$harga_buku'
                         WHERE id_buku = $id_buku";
-        
+
         if (mysqli_query($conn, $update_query)) {
             header("Location: CRUDadmin.php");
             exit;
@@ -93,10 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Buku</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -108,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         h1 {
             text-align: center;
             color: #333;
+            margin-top: 20px;
         }
 
         form {
@@ -116,35 +119,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            color: #555;
         }
 
         input[type="text"],
-        input[type="number"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
         textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            max-width: 100%;
+            min-width: 100%;
+            min-height: 50px;
         }
 
         button {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #28a745;
             color: #fff;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
@@ -163,11 +182,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .gambar-box {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             border: 1px solid #ccc;
             margin: 10px 0;
             padding: 10px;
+            border-radius: 4px;
+            background-color: #fafafa;
         }
 
         .gambar-preview {
@@ -175,6 +196,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-height: 200px;
             margin: 10px 0;
             object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         .gambar-box input {
@@ -184,9 +207,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
             background-color: #f4f4f4;
             cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
+
 <body>
     <h1>Edit Buku</h1>
     <form action="edit_buku.php?id_buku=<?php echo $id_buku; ?>" method="POST" enctype="multipart/form-data">
@@ -207,7 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="harga_buku">Harga Buku:</label>
         <input placeholder="Rp..." type="number" id="harga_buku" name="harga_buku" value="<?php echo $buku['harga_buku']; ?>" required><br>
-        
+
         <!-- Upload Gambar -->
         <label for="gambar">Gambar Buku:</label>
         <div class="gambar-box">
@@ -225,14 +250,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         function previewImage(input) {
             const preview = document.getElementById('preview');
             const file = input.files[0];
-            
+
             if (file) {
                 const reader = new FileReader();
-                
+
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                 }
-                
+
                 reader.readAsDataURL(file);
             } else {
                 preview.src = 'uploads/<?php echo $buku['gambar']; ?>';
@@ -240,4 +265,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </body>
+
 </html>

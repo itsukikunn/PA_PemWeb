@@ -6,6 +6,13 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (isset($_SESSION["username"])) {
+    if (isset($_SESSION["admin"])) {
+        if ($_SESSION["admin"] == true) {
+            echo "<script>
+        window.location.href='CRUDadmin.php';
+        </script>";
+        }
+    }
     $username = $_SESSION["username"];
     $query = "SELECT id_user FROM user WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
@@ -100,13 +107,13 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="item-keranjang
                         <?php if ($stokbuku['stok_buku'] <= 0) {
                             echo 'red disabled';
-                        }?>" 
-                        data-harga="<?php echo $item['harga_buku']; ?>">
+                        } ?>"
+                            data-harga="<?php echo $item['harga_buku']; ?>">
                             <div class="container-pilih">
                                 <input class="pilih item-checkbox" type="checkbox"
                                     value="<?php echo $item['id_transaksi']; ?>"
-                                    <?php 
-                                    if ($stokbuku['stok_buku'] <= 0) {
+                                    <?php
+                                    if ($stokbuku['stok_buku'] <= 0 && $item['status_transaksi'] != 2) {
                                         echo 'disabled';
                                         $query = "UPDATE transaksi SET status_transaksi = 0 
                                                   WHERE id_transaksi = '" . $item['id_transaksi'] . "' 
@@ -144,18 +151,18 @@ while ($row = mysqli_fetch_array($result)) {
                                     <button type="button" class="tombol-aksi kurangi" onclick="updateJumlah(this, -1)">-</button>
                                     <div class="jumlah-item">
                                         <input type="number" name="quantity"
-                                                value="<?php 
-                                                if ($item ['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
-                                                    echo $stokbuku['stok_buku'];
-                                                } else {
-                                                    echo $item['jumlah_transaksi'];
-                                                }?>"
-                                                min="1" max="<?php echo $stokbuku['stok_buku']; ?>"  style="width: 30px; text-align: center;">
+                                            value="<?php
+                                                    if ($item['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
+                                                        echo $stokbuku['stok_buku'];
+                                                    } else {
+                                                        echo $item['jumlah_transaksi'];
+                                                    } ?>"
+                                            min="1" max="<?php echo $stokbuku['stok_buku']; ?>" style="width: 30px; text-align: center;">
                                     </div>
                                     <button type="button" class="tombol-aksi tambah" onclick="updateJumlah(this, 
                                     <?php
                                     // Jika Jumlah_transaksi >= Stok Buku
-                                    if ($item ['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
+                                    if ($item['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
                                         echo 0;
                                     } else {
                                         echo 1;
