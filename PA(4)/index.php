@@ -21,31 +21,7 @@ if (isset($_GET['logout'])) {
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    
-    <header class="header">
-        <div class="logo-container">
-            <img src="uploads/sempaja1.png" alt="Sempajahaven" class="custom-logo">
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for anything">
-            <button class="search-button">🔍</button>
-        </div>
-        <div class="header-buttons">
-            <a href="#" class="header-link"><strong>Home</strong></a>
-            <a href="about.html" class="header-link">📱<strong>About Us</strong></a>
-            <a href="detail_buku.php?id_buku=1" class="header-link"><strong>DETAIL BUKU (INJIL)</strong></a>
-            <?php if ($login_akun): ?>
-                <a href="index.php?logout=true" class="header-link"><strong>Logout</strong></a>
-            <?php else: ?>
-                <a href="signup.php" class="header-link"><strong>Sign Up</strong></a>
-                <a href="login.php" class="header-link"><strong>Login</strong></a>
-            <?php endif; ?>
-            <div class="cart-badge">
-                <a href="keranjang.php" class="header-link">
-                    🛒
-                    <span class="badge"></span>
-                </a>
-    </header>
+    <?php include 'navbar.php';?> 
     <div class="banner-container">
         <div class="banner-item large">
             <img id="bannerLarge" src="uploads/banner1.png" alt="Banner Large">
