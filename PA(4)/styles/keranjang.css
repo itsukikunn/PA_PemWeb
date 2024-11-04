@@ -78,6 +78,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 20px 0 5px;
+    pointer-events: all;
 }
 
 .gambar-keranjang img {
@@ -128,6 +129,7 @@ body {
     background-color: transparent;
     border-radius: 20%;
     padding: 10 px;
+    pointer-events: all;
 }
 
 .hapus:hover {
@@ -220,6 +222,7 @@ body {
     pointer-events: none;
     opacity: 0.;
 }
+
 
 .red {
     background-color: #f53333;
