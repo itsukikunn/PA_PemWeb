@@ -1,3 +1,5 @@
+
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -56,7 +58,6 @@ body {
 
 .container-pilih {
     padding: 20px;
-    /* justify and align center */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,11 +219,36 @@ body {
 }
 
 .disabled {
-    /* dont display the action */
     pointer-events: none;
     opacity: 0.;
 }
 
 .red {
     background-color: #f53333;
+}
+
+@media screen and (max-width: 1440px) {
+    /* Ubah margin utama dan font untuk mencegah overlap */
+    .isi-halaman {
+        margin: 0 8%;
+    }
+
+    .isi-kiri, .isi-kanan {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .judul {
+        font-size: 13px;
+    }
+
+    .form-keranjang {
+        flex-wrap: wrap;
+    }
+
+    .aksi {
+        width: 100%;
+        padding: 10px 0;
+    }
+
 }
