@@ -32,13 +32,13 @@ if (isset($_POST['register'])) {
         if ($result) {
             echo "
             <script>
-            alert('Sign Up Berhasil!');
+            alert('Register Berhasil!');
             window.location.href = 'login.php';
             </script>";
         } else { 
             echo "
             <script>
-            alert('Sign Up Gagal, Silahkan Coba Lagi: " . mysqli_error($conn) . "');
+            alert('Register Gagal, Silahkan Coba Lagi: " . mysqli_error($conn) . "');
             window.location.href = 'register.php';
             </script>";
         }
@@ -51,7 +51,7 @@ if (isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Register Page</title>
     <link rel="stylesheet" href="styles/register.css">
 </head>
 <body>
@@ -67,7 +67,7 @@ if (isset($_POST['register'])) {
             <div class="content-right">
             <form action="register.php" method="POST">
             <div>
-                <h1>Sign Up</h1>
+                <h1>Register</h1>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
@@ -80,7 +80,7 @@ if (isset($_POST['register'])) {
                 <input type="password" id="password" name="password" required>
             </div>
             <div>
-                <button type="submit" name="register">Sign Up</button>
+                <button type="submit" name="register">Register</button>
             </div>
         </form>
             </div>
