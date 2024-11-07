@@ -66,6 +66,7 @@ h1 {
 }
 .table-container {
     width: 80%;
+    height: 80vh;
     margin: 20px auto;
     overflow-x: auto;
     border: 1px solid #000000;
