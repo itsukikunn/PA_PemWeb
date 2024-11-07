@@ -38,6 +38,12 @@ $login_akun = isset($_SESSION['login']) && $_SESSION['login'] === true;
                     <span class="badge"></span>
                 </a>
             </div>
+            <div class="cart-badge">
+                <a href="history.php" class="header-link">
+                    ⏱️
+                    <span class="badge"></span>
+                </a>
+            </div>
     </header>
 </body>
 </html>
