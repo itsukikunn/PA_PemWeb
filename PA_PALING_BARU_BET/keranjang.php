@@ -72,13 +72,11 @@ while ($row = mysqli_fetch_array($result)) {
     <title>Keranjang</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styles/keranjang.css">
-
-
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
-    
+    <?php include 'navbar.php' ?>
+
     <div class="judul">
         <h1>Keranjang</h1>
     </div>
@@ -96,12 +94,12 @@ while ($row = mysqli_fetch_array($result)) {
                         <div class="item-keranjang
                         <?php if ($stokbuku['stok_buku'] <= 0) {
                             echo 'red disabled';
-                        }?>" 
-                        data-harga="<?php echo $item['harga_buku']; ?>">
+                        } ?>"
+                            data-harga="<?php echo $item['harga_buku']; ?>">
                             <div class="container-pilih">
                                 <input class="pilih item-checkbox" type="checkbox"
                                     value="<?php echo $item['id_transaksi']; ?>"
-                                    <?php 
+                                    <?php
                                     if ($stokbuku['stok_buku'] <= 0) {
                                         echo 'disabled';
                                         $query = "UPDATE transaksi SET status_transaksi = 0 
@@ -140,18 +138,19 @@ while ($row = mysqli_fetch_array($result)) {
                                     <button type="button" class="tombol-aksi kurangi" onclick="updateJumlah(this, -1)">-</button>
                                     <div class="jumlah-item">
                                         <input type="number" name="quantity"
-                                                value="<?php 
-                                                if ($item ['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
-                                                    echo $stokbuku['stok_buku'];
-                                                } else {
-                                                    echo $item['jumlah_transaksi'];
-                                                }?>"
-                                                min="1" max="<?php echo $stokbuku['stok_buku']; ?>"  style="width: 30px; text-align: center;">
+                                            value="<?php
+                                                    if ($item['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
+                                                        echo $stokbuku['stok_buku'];
+                                                    } else {
+                                                        echo $item['jumlah_transaksi'];
+                                                    } ?>"
+                                            min="0" max="<?php echo $stokbuku['stok_buku']; ?>"
+                                            onchange="this.form.submit()"
+                                            style="width: 30px; text-align: center;">
                                     </div>
                                     <button type="button" class="tombol-aksi tambah" onclick="updateJumlah(this, 
                                     <?php
-                                    // Jika Jumlah_transaksi >= Stok Buku
-                                    if ($item ['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
+                                    if ($item['jumlah_transaksi'] >= $stokbuku['stok_buku']) {
                                         echo 0;
                                     } else {
                                         echo 1;
@@ -178,7 +177,7 @@ while ($row = mysqli_fetch_array($result)) {
                         <h2>Total Harga</h2>
                         <p id="totalHarga">Rp0</p>
                     </div>
-                    <button type="submit" class="checkout" name="checkoutButton" id="checkoutButton" disabled>Checkout</button>
+                    <button type="submit" class="checkout" name="checkoutButton" id="checkoutButton">Checkout</button>
                 </form>
             </div>
         </div>
@@ -190,11 +189,11 @@ while ($row = mysqli_fetch_array($result)) {
             const form = button.closest('form');
             const input = form.querySelector('input[name="quantity"]');
             const newValue = parseInt(input.value) + change;
-
-            if (newValue >= 1 && newValue <= 99) {
+            if (newValue >= 0) {
                 input.value = newValue;
                 form.submit();
             }
+
         }
 
         function updateItemStatus(checkbox) {
@@ -232,9 +231,18 @@ while ($row = mysqli_fetch_array($result)) {
             document.getElementById('totalItems').textContent = totalItems;
             document.getElementById('totalHarga').textContent =
                 'Rp' + new Intl.NumberFormat('id-ID').format(totalHarga);
-            document.getElementById('checkoutButton').disabled = totalItems === 0;
+            document.getElementById('checkoutButton') = totalItems === 0;
         }
 
+        // Jika checkout di klik saat keranjang kosong
+        document.getElementById('checkoutButton').addEventListener('click', function(event) {
+            if (document.getElementById('totalItems').textContent === '0') {
+            alert('Keranjang masih kosong');         
+            event.preventDefault();
+            }
+        });
+
+        // Update saat checkbox diubah
         document.getElementById('checkoutForm').addEventListener('submit', function(event) {
             const items = document.getElementsByClassName('item-checkbox');
             for (let item of items) {
@@ -244,7 +252,9 @@ while ($row = mysqli_fetch_array($result)) {
             }
         });
 
+        // Update saat masuk di halaman
         document.addEventListener('DOMContentLoaded', updateRingkasan);
     </script>
 </body>
+
 </html>
