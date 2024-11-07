@@ -64,9 +64,14 @@ h1 {
     background-color: #45a049;
     text-decoration: none;
 }
-table {
-    width: 90%;
+.table-container {
+    width: 80%;
     margin: 20px auto;
+    overflow-x: auto;
+    border: 1px solid #000000;
+}
+
+table {
     border-collapse: collapse;
     background-color: white;
 }
@@ -74,8 +79,12 @@ table, th, td {
     border: 1px solid #ddd;
 }
 th, td {
+    min-width: 50px;
     padding: 12px;
     text-align: left;
+}
+.kolom-deskripsi {
+    min-width: 700px;
 }
 th {
     background-color: #f2f2f2;
