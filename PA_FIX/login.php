@@ -38,7 +38,7 @@ if (isset($_POST['login'])) {
         } else {
             echo "<script>
                     alert('Username tidak ditemukan! Silakan registrasi terlebih dahulu.');
-                    document.location.href = 'signup.php';
+                    document.location.href = 'register.php';
                   </script>";
         }
     }
@@ -58,7 +58,8 @@ mysqli_close($conn);
     <div class="container-login" id="container">
         <div class="box-left">
             <div class="toggle">
-            <h1>Gasss Login Brokkk!</h1>
+            <img src="uploads/logo.png" alt="Sempajahaven" class="logo">
+            <h1>Silahkan Login Dengan Akun Anda!</h1>
             </div>
         </div>
         <div class="box-right" id="box-right">
@@ -77,7 +78,7 @@ mysqli_close($conn);
                     <button type="submit" name="login">Login</button>
                 </div>
                     <br>
-                <p>Belum punya akun? Registrasi di <a href="signup.php"> sini!</a></p>
+                <p>Belum punya akun? Registrasi di <a href="register.php"> sini!</a></p>
             </form>
             </div>
         </div>

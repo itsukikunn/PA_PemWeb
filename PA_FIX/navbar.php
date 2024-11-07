@@ -30,7 +30,7 @@ $login_akun = isset($_SESSION['login']) && $_SESSION['login'] === true;
             <?php if ($login_akun): ?>
                 <a href="index.php?logout=true" class="header-link"><strong>Logout</strong></a>
             <?php else: ?>
-                <a href="signup.php" class="header-link"><strong>Sign Up</strong></a>
+                <a href="register.php" class="header-link"><strong>Register</strong></a>
                 <a href="login.php" class="header-link"><strong>Login</strong></a>
             <?php endif; ?>
             <div class="cart-badge">
