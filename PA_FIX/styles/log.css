@@ -1,0 +1,148 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+body {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container-login {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    display: flex; 
+}
+
+.box-right {
+    background-color: #fff;
+    height: 100%;
+    width: 70%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box-right h1 {
+    color: black;
+    padding: 5px;
+}
+
+.box-right span {
+    color: black;
+    padding: 5px;
+}
+
+.box-left {
+    background-color: #1A2338;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.toggle{
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;    
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.box-left h1 {
+    color: white;
+    padding: 5px;
+    padding-bottom: 20px;
+}
+
+.box-left p {
+    color: white;
+    padding: 5px;
+}
+
+
+.content-right {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-right h1 {
+    font-size: 34px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+
+.content-right span {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    width: 100%; 
+    display: block; 
+}
+
+.content-right input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+}
+
+.content-right button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1A2338;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-emphasis-color: white;
+    
+}
+
+.content-right button:hover {
+    background-color: #333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
