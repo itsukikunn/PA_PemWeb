@@ -18,7 +18,12 @@ if (!isset($_SESSION['username'])) {
         </script>";
     }
 }
-$id_user = $_SESSION['id_user'];
+$temp_user = $_SESSION['username'];
+$query = "SELECT id_user FROM user WHERE username = '$temp_user'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result);
+$id_user = $row["id_user"];
+
 $image_dir = "uploads/";
 
 
@@ -47,13 +52,11 @@ while ($row = mysqli_fetch_array($result)) {
     <title>Histori</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styles/history.css">
+
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="index.php">Home</a>
-        <a href="history.php">Histori</a>
-        <a href="keranjang.php">Keranjang</a>
-    </div>
+    <?php include "navbar.php"; ?>
 
     <div class="judul">
         <h1>Histori Pembelian</h1>
