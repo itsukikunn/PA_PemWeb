@@ -16,7 +16,6 @@ include 'koneksi.php';
     <?php require 'navbar.php'; ?>
     <div class="main-container">
 
-        <!-- Kategori Fiksi di Section Categories -->
         <section class="categories">
             <form action="searching.php" method="post"></form>
         </section>
