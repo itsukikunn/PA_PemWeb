@@ -16,8 +16,7 @@ if (isset($_SESSION["username"])) {
 }
 
 
-// Menggabungkan data buku dan transaksi
-
+// Join data buku dan transaksi
 $query = "SELECT t.*, b.nama_buku, b.harga_buku 
           FROM transaksi t 
           JOIN buku b ON t.FK_id_buku = b.id_buku 
