@@ -27,7 +27,7 @@
                             <h5 class="title-option"> PANDUAN WEBSITE </h5>
                             <ul class="list-option">
                                 <li class="list-item">
-                                    <a href="https://drive.google.com/file/d/1H9RjadpeBagkQHzlCroqO1hL64GW1ymy/view?usp=sharing" class="list-link" target="_blank">Manual Book</a>
+                                    <a href="https://drive.google.com/file/d/1xcOpqCNfI_puyN8P9xQ-vJzoygkw67r7/view?usp=drive_link" class="list-link" target="_blank">Manual Book</a>
                                 </li>
                             </ul>
                         </div>
