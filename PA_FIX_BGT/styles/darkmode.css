@@ -135,11 +135,6 @@ body.dark-mode h5 {
     color: var(--dark-text);
 }
 
-body.dark-mode .isi-halaman {
-    background-color: var(--dark-cart-bg);
-    color: var(--dark-text);
-}
-
 body.dark-mode .item-keranjang {
     background-color: var(--dark-item-bg);
     border-color: var(--dark-disabled-bg);
@@ -230,3 +225,37 @@ body.dark-mode .total-harga p {
 .dark-mode .header-buttons{
     background-color: var( --dark-header-bg);
 }
+
+.dark-mode .judul-deskripsi {
+    color: white;
+}
+
+.dark-mode .isi-deskripsi {
+    color: white;
+}
+.dark-mode .buku-card {
+    background-color: white;
+    color: black
+}
+
+.dark-mode .buku-card h5 {
+    color: #285398;
+}
+
+.dark-mode .buku-card p {
+    color: black;
+}
+
+.dark-mode .form-keranjang {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}
+
+.dark-mode .receipt-header h1{
+    color: black
+}
+
+.dark-mode .receipt-items thead, tbody {
+    color: black;
+}
+
