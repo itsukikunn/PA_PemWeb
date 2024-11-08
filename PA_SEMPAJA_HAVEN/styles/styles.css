@@ -288,22 +288,6 @@ body {
   text-decoration: underline;
 }
 
-.spacing-option-find {
-  margin-top: 20px;
-}
-
-.logoWrapper {
-  min-width: 1024px;
-  display: flex;
-  margin-top: 60px;
-  -webkit-box-pack: start;
-  justify-content: flex-start;
-}
-
-.logoWrapper img {
-  margin-top: 10px;
-}
-
 .copyright {
   width: 100%;
   font-size: 12px;
