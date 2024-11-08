@@ -26,7 +26,7 @@ if (isset($_SESSION["username"])) {
     }
 }
 
-// JIka ada parameter search, tambahkan query WHERE
+// JIka search, tambahkan query WHERE
 if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($conn, $_GET['search']);
     $query = "SELECT * FROM buku WHERE id_buku LIKE '%$search%' OR nama_buku LIKE '%$search%' OR penulis LIKE '%$search%'";
