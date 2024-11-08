@@ -1,0 +1,232 @@
+:root {
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --light-search-bg: #ffffff;
+    --light-header-bg: #285398;
+    --light-cart-bg: #f5f5f5;
+    --light-item-bg: #ffffff;
+    --light-disabled-bg: #cccccc;
+    
+    --dark-bg: #1a1a1a;
+    --dark-text: #ffffff;
+    --dark-search-bg: #333333;
+    --dark-header-bg: #2d2d2d;
+    --dark-cart-bg: #2c2c2c;
+    --dark-item-bg: #3a3a3a;
+    --dark-disabled-bg: #4a4a4a;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    background-color: var(--light-header-bg);
+    transition: background-color 0.3s;
+}
+
+.search-bar input {
+    background-color: var(--light-search-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer-main {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer-main .list-link {
+    color: var(--dark-text);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(45deg);
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .header {
+    background-color: var(--dark-header-bg);
+}
+
+.dark-mode .search-bar input {
+    background-color: var(--dark-search-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .header-link {
+    color: var(--dark-text);
+}
+
+.dark-mode .sell-button {
+    background-color: var(--dark-search-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .footer-main {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .footer-main .list-link {
+    color: var(--dark-text);
+}
+
+.dark-mode .footer-main .list-link:hover {
+    color: var(--light-text); 
+}
+
+.dark-mode .footer-container {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .copyright {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .judul-deskripsi {
+    color: var(--dark-text);
+}
+
+.dark-mode .isi-deskripsi {
+    color: var(--dark-text);
+}
+
+.dark-mode .penulis {
+    color: var(--dark-text);
+}
+
+body.dark-mode h2 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .judul h1 {
+    color: var(--dark-text);
+}
+
+body.dark-mode b {
+    color: var(--dark-text);
+}
+
+body.dark-mode h5 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .isi-halaman {
+    background-color: var(--dark-cart-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode .item-keranjang {
+    background-color: var(--dark-item-bg);
+    border-color: var(--dark-disabled-bg);
+}
+
+body.dark-mode .item-keranjang.disabled {
+    background-color: var(--dark-disabled-bg);
+}
+
+body.dark-mode .data-list h3,
+body.dark-mode .data-list p {
+    color: var(--dark-text);
+}
+
+body.dark-mode .aksi .hapus,
+body.dark-mode .aksi .kurangi,
+body.dark-mode .aksi .tambah {
+    background-color: var(--dark-item-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode .checkout,
+body.dark-mode .checkout:hover {
+    background-color: var(--dark-search-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode .form-keranjang .isi-kanan {
+    background-color: var(--dark-item-bg);
+}
+
+body.dark-mode hr {
+    border-color: var(--dark-disabled-bg);
+}
+
+body.dark-mode .jumlah-barang p,
+body.dark-mode .total-harga h2,
+body.dark-mode .total-harga p {
+    color: var(--dark-text);
+}
+
+.kelompok-container {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode .kelompok-container {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.member {
+    background-color: var(--light-search-bg);
+    color: var(--light-text);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .member {
+    background-color: var(--dark-search-bg);
+    color: var(--dark-text);
+}
+
+.member h2 {
+    color: var(--light-header-bg);
+}
+
+.dark-mode .member h2 {
+    color: var(--dark-text);
+}
+
+.dark-mode body {
+    color: var(--dark-text);
+}
+
+.dark-mode h1,
+.dark-mode .member p,
+.dark-mode .member h2 {
+    color: var(--dark-text);
+}
+
+.dark-mode .hamburger {
+    background-color: var( --dark-header-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .header-buttons{
+    background-color: var( --dark-header-bg);
+}

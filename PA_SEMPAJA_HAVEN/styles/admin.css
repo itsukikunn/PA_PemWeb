@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #285398;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: black;
+}
+
+.navbar .logo {
+    height: 120px;
+    width: 150px;
+}
+
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+.search-bar {
+    margin: 20px auto;
+    text-align: center;
+}
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tambah {
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.tambah:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+.table-container {
+    width: 80%;
+    height: 80vh;
+    margin: 20px auto;
+    overflow-x: auto;
+    border: 1px solid #000000;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    min-width: 50px;
+    padding: 12px;
+    text-align: left;
+}
+.kolom-deskripsi {
+    min-width: 700px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.gambar-row {
+    width: 100px;
+    height: auto;
+}
+td a {
+    margin-right: 10px;
+    color: #333;
+    text-decoration: none;
+}
+td a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    margin: 20px auto;
+    text-align: center;
+    align-items: center;
+}
+
+.search-bar form {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.aksi-edit {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0 10px 5px;
+    font-size: 12px;
+    width: 60px;
+}
+
+.aksi-hapus {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0 10px 5px;
+    font-size: 12px;
+    width: 60px;
+}
+
+.logo {
+    height: 20px;
+    vertical-align: middle;
+}
+
+.logout {
+    float: right;
+    padding: 14px 20px;
+}
